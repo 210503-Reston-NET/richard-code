@@ -1,37 +1,45 @@
 using System;
 using RRModels;
+using RRBL;
+using RRDL;
 using System.Collections.Generic;
 namespace RRUI
 
 {
     public class MainMenu:IMenu
     {
+        private IMenu submenu;
+        Action <string> doprintlog = ActionWriteLog;
         public void Start(){
             bool repeat=true;
             do{
-            Console.WriteLine("Welcome to my Restaurant Review App");
-            Console.WriteLine("What do you want to do?");
-            Console.WriteLine("[0] View Restaurant");
-            Console.WriteLine("[1] Exit");
-            string input=Console.ReadLine();
-
-            switch(input){
-                case "0":
-                    ViewRestaurant();
-                    break;
-                case "1":
-                    Console.WriteLine("Good By");
-                    repeat=false;
-                    break;
-                default:
-                    Console.WriteLine("Please input a valid option");
-                    break;
-
-
-            }
-
-
-
+                //Console.WriteLine("Welcome to my Restaurant Reviews Application!");
+               /* Console.WriteLine("What would you like to do?");
+                Console.WriteLine("[0] CRUD Restaurants");
+                Console.WriteLine("[1] Exit");*/
+                doprintlog("Welcome to my Restaurant Reviews Application!");
+                doprintlog("What would you like to do?");
+                doprintlog("[0] CRUD Restaurants");
+                doprintlog("[1] Exit");
+                string input = Console.ReadLine();
+                switch (input)
+                {
+                    case "0":
+                        //TODO: Fix this
+                        //submenu = new RestaurantMenu(new RestaurantBL(new RepoSC()));
+                        submenu = new RestaurantMenu(new RestaurantBL());
+                        submenu.Start();
+                        break;
+                    case "1":
+                        //exit
+                        Console.WriteLine("Goodbye cruel world.");
+                        repeat = false;
+                        break;
+                    default:
+                        //invalid input
+                        Console.WriteLine("Please input a valid option");
+                        break;
+                }
             }while(repeat);
         }
 
@@ -55,6 +63,10 @@ namespace RRUI
             {
                 Console.WriteLine(review.ToString());
             }
+        }
+
+        private static void ActionWriteLog(string mssg){
+            Console.WriteLine(mssg);
         }
         
     }

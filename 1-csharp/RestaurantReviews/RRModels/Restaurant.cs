@@ -23,15 +23,14 @@ namespace RRModels
 
         }
        
-        public string Name { get; }
-        public string City { get; }
+        public string Name { get; set;}
+        public string City { get; set;}
       
-        public string State { get; }
+        public string State { get; set;}
        
         public List <Review> Reviews { get; set; }
         public override string ToString()
         {
-            return $" Name: {Name} \n Location: {City}, {State} \n Review: \n{Reviews.ToString()}";
-        }
+return $" Name: {Name} \n Location: {City}, {State}";        }
     }
 }
