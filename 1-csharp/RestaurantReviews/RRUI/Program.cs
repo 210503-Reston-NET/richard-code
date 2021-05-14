@@ -8,8 +8,11 @@ namespace RRUI
         static void Main(string[] args)
         {
           //Setting a parent type to an instance of a subtype is called covariance
-            IMenu menu = new MainMenu();
-            menu.Start();
+           /* IMenu menu = new MainMenu();
+            menu.Start();*/
+
+            // Using factory design patern
+            MenuFactory.GetMenu("main").Start();
         }
     }
 }

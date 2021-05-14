@@ -75,7 +75,7 @@ bool repeat=true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("OUFFFFFFFFFFFFFFF fail to add this restaurant");
+               // Console.WriteLine("OUFFFFFFFFFFFFFFF fail to add this restaurant");
                 Console.WriteLine(ex.Message);
 
             }

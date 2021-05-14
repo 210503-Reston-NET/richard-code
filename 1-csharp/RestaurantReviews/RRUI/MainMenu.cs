@@ -26,7 +26,9 @@ namespace RRUI
                 {
                     case "0":
                         //TODO: Fix this
-                        submenu = new RestaurantMenu(new RestaurantBL(new RepoFile()), new ValidationService());
+                       /* submenu = new RestaurantMenu(new RestaurantBL(new RepoFile()), new ValidationService());
+                        submenu.Start();*/
+                        submenu = MenuFactory.GetMenu("restaurant");
                         submenu.Start();
                         break;
                     case "1":
